@@ -11,8 +11,7 @@ available_leagues <- c("liga",
                      "serie-A",
                      "bundesliga",
                      "eredivisie",
-                     "superliga",
-                     "mls"
+                     "superliga"
                      )
 
 
@@ -43,12 +42,16 @@ if(!season %in% available_seasons){
 
 }
 
+# scraping -------------------------------------
+
 
 link <- glue::glue("https://www.eurosport.com/football/{league}/{season}/standing.shtml")
 
 
 ranking <- ralger::table_scrap(link)
 
+
+# data cleaning ----------------------------------------
 
 ranking <- ranking[, -3]
 
